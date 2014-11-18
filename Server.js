@@ -8,6 +8,10 @@ net.createServer(function(socket){
 		socket.write('You said "'+data+'"');
 	});
 
+	socket.on('close',function(){
+		process.exit()
+	});
+
 	socket.on('close',function(data){
 		console.log('CLOSED: '+socket.remoteAddress + ' ' + socket.remotePort);
 	})
